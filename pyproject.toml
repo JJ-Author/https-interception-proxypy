@@ -12,10 +12,11 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-#proxy-py = "^2.4.7"
+proxy-py = "2.4.8"
 #proxy-py = {version = "2.4.5.dev10", source = "test-pypi"}
 #proxy-py = {path = "../proxy.py-jj-fork", develop = true}
-proxy-py = {git = "https://github.com/JJ-Author/proxy.py.git", branch = "develop" }
+#proxy-py = {git = "https://github.com/JJ-Author/proxy.py.git", branch = "develop" }
+#proxy-py = {git = "https://github.com/abhinavsingh/proxy.py.git", branch = "develop" }
 requests = "^2.32.3"
 
 [[tool.poetry.source]]
