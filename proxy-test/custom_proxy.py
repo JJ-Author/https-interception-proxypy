@@ -23,6 +23,7 @@ class OntologyTimeMachinePlugin(HttpProxyBasePlugin):
         """ 
 
         print(f'Do intercept triggered: {vars(_request)}\n')
+        print(f'##### Self.client vars: {vars(self.client)}')
 #        if _request._is_https_tunnel:
 #            return True
 #        if _request.host == b'tools.dbpedia.org':
@@ -33,8 +34,10 @@ class OntologyTimeMachinePlugin(HttpProxyBasePlugin):
             return False
         if _request.host == b'www.example.org':
             return False
-        else: 
+        if _request.host == b'example.org':
             return True
+        else:
+            return False
 
 
 if __name__ == '__main__':
@@ -46,9 +49,12 @@ if __name__ == '__main__':
     ]
     sys.argv += [
         '--hostname', '0.0.0.0',
-        '--port', '8899',
-        '--log-level', 'e',
+#        '--hostname', '::',
+#        '--hostname', '2a01:4f9:4b:479e::2',
+        '--port', '8897',
+        '--log-level', 'd',
         '--insecure-tls-interception',
+#        '--enable-proxy-protocol',
 #        '--basic-auth', 'user:pass',
         '--plugins', __name__ + '.OntologyTimeMachinePlugin'
     ]
